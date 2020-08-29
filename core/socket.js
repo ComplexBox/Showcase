@@ -21,18 +21,21 @@ export default {
   },
   methods: {
     socketInitialize() {
+      if (this.socket) this.socket.close()
       this.socket = new WebSocket('ws://127.0.0.1:19101/socket')
+      this.socket.onclose = this.socketOnErrorOrClose
       this.socket.onmessage = this.socketOnMessage
       this.socket.onopen = this.socketOnOpen
-      this.socket.onerror = this.socketOnError
+      this.socket.onerror = this.socketOnErrorOrClose
     },
     socketOnOpen() {
       this.loading = false
       this.socket.send('heart')
     },
-    socketOnError() {
+    socketOnErrorOrClose() {
       this.loading = true
-      this.socketInitialize()
+      if (this.socket) this.socket.close()
+      setInterval(this.socketInitialize.bind(this), 2000)
     },
     socketOnMessage(e) {
       this.loading = false
