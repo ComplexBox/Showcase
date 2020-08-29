@@ -7,9 +7,11 @@ export default {
       socket: null,
       msg: '',
       response: '',
+      loading: true,
     }
   },
   mounted() {
+    if (this.socket) this.socket.close()
     this.socketInitialize()
   },
   destroyed() {
@@ -23,12 +25,15 @@ export default {
       this.socket.onerror = this.socketOnError
     },
     socketOnOpen() {
+      this.loading = false
       this.socket.send('heart')
     },
     socketOnError() {
+      this.loading = true
       this.socketInitialize()
     },
     socketOnMessage(e) {
+      this.loading = false
       const raw = e.data
       const socketMsg = JSON.parse(raw)
       const data = socketMsg.data
