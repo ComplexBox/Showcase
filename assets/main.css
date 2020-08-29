@@ -1,10 +1,31 @@
 * {
   margin: 0;
   padding: 0;
+  color: white;
+  font-family: 'Microsoft YaHei UI', 'Segoe UI', Tahoma, Geneva, Verdana,
+    sans-serif;
 }
 
 html,
 body {
   height: 100%;
   width: 100%;
+  background-color: #202020;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
 }
