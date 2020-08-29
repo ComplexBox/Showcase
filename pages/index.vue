@@ -4,11 +4,19 @@
       <div class="flex-center">
         <img src="@/assets/splash.png" style="width: 200px" />
       </div>
-      <p>未能连接到主播端，请检查SimpleBox是否已经启动。</p>
+      <p style="color: white">
+        未能连接到主播端，请检查SimpleBox是否已经启动。
+      </p>
     </div>
-    <div v-else>
-      <p>{{ msg }}</p>
-      <p>{{ response }}</p>
+    <div v-else class="flex-center flex-column">
+      <div class="question-box">
+        <div class="text-field">{{ data.msg }}</div>
+        <div class="extra-field"></div>
+      </div>
+      <div v-if="data.response" class="answer-box">
+        <div class="text-field">{{ data.response }}</div>
+        <div class="extra-field"></div>
+      </div>
     </div>
   </div>
 </template>
@@ -19,4 +27,4 @@ import core from '@/core/socket'
 export default core
 </script>
 
-<style></style>
+<style scoped></style>
