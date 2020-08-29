@@ -35,7 +35,7 @@ body {
   border-bottom: 0;
   background-color: rgb(138, 212, 138);
   border-radius: 10px;
-  width: 90%;
+  width: 500px;
 }
 
 .answer-box {
@@ -44,7 +44,7 @@ body {
   border-bottom: 0;
   background-color: rgb(138, 212, 138);
   border-radius: 10px;
-  width: 90%;
+  width: 500px;
 }
 
 .text-field {
@@ -52,7 +52,8 @@ body {
   padding: 20px;
   border-radius: 5px;
   font-size: 1.15rem;
-  white-space: pre-wrap;
+  white-space: pre-line;
+  word-wrap: break-word;
 }
 
 .extra-field {
@@ -67,4 +68,13 @@ body {
   align-self: flex-end;
   background-color: rgba(0, 0, 0, 0.1);
   margin: 0 auto;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
