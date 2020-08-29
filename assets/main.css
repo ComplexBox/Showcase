@@ -1,7 +1,6 @@
 * {
   margin: 0;
   padding: 0;
-  color: white;
   font-family: 'Microsoft YaHei UI', 'Segoe UI', Tahoma, Geneva, Verdana,
     sans-serif;
 }
@@ -28,4 +27,44 @@ body {
 .flex-center {
   display: flex;
   justify-content: center;
+}
+
+.question-box {
+  margin: 5px 0;
+  border: 10px solid rgb(138, 212, 138);
+  border-bottom: 0;
+  background-color: rgb(138, 212, 138);
+  border-radius: 10px;
+  width: 90%;
+}
+
+.answer-box {
+  margin: 5px 0;
+  border: 10px solid rgb(138, 212, 138);
+  border-bottom: 0;
+  background-color: rgb(138, 212, 138);
+  border-radius: 10px;
+  width: 90%;
+}
+
+.text-field {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  font-size: 1.15rem;
+  white-space: pre-wrap;
+}
+
+.extra-field {
+  display: flex;
+  padding: 5px 0;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.05rem;
+  justify-content: center;
+}
+
+.info-box {
+  align-self: flex-end;
+  background-color: rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
 }
