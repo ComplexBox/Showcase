@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import socket from '@/core/socket'
+import core from '@/core/socket'
 
-export default socket
+export default core
 </script>
