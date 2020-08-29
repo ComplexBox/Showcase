@@ -5,10 +5,15 @@ export default {
   data() {
     return {
       socket: null,
-      data: {
+      data1: {
         msg: '',
         response: '',
       },
+      data2: {
+        msg: '',
+        response: '',
+      },
+      flag: false,
       loading: true,
     }
   },
@@ -43,7 +48,11 @@ export default {
       const type = socketMsg.type
       switch (type) {
         case 'msg':
-          if (data) this.data = data
+          if (data) {
+            if (this.flag) this.data2 = data
+            else this.data1 = data
+            this.flag = !this.flag
+          }
           break
       }
     },
