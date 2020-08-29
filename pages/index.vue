@@ -18,3 +18,5 @@ import core from '@/core/socket'
 
 export default core
 </script>
+
+<style></style>
