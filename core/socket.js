@@ -5,8 +5,10 @@ export default {
   data() {
     return {
       socket: null,
-      msg: '',
-      response: '',
+      data: {
+        msg: '',
+        response: '',
+      },
       loading: true,
     }
   },
@@ -43,14 +45,9 @@ export default {
           this.socket.send('heart')
           break
         case 'msg':
-          this.processMsg(data)
+          if (data) this.data = data
           break
       }
-    },
-    processMsg(data) {
-      if (!data) return
-      this.msg = data.msg
-      this.response = data.response
     },
   },
 }
