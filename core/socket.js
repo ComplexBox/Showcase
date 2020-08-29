@@ -13,7 +13,6 @@ export default {
     }
   },
   mounted() {
-    if (this.socket) this.socket.close()
     this.socketInitialize()
   },
   destroyed() {
@@ -21,8 +20,9 @@ export default {
   },
   methods: {
     socketInitialize() {
+      const ReconnectingWebSocket = require('reconnectingwebsocket')
       if (this.socket) this.socket.close()
-      this.socket = new WebSocket('ws://127.0.0.1:19101/socket')
+      this.socket = new ReconnectingWebSocket('ws://127.0.0.1:19101/socket')
       this.socket.onclose = this.socketOnErrorOrClose
       this.socket.onmessage = this.socketOnMessage
       this.socket.onopen = this.socketOnOpen
@@ -34,8 +34,6 @@ export default {
     },
     socketOnErrorOrClose() {
       this.loading = true
-      if (this.socket) this.socket.close()
-      setInterval(this.socketInitialize.bind(this), 2000)
     },
     socketOnMessage(e) {
       this.loading = false
@@ -44,9 +42,6 @@ export default {
       const data = socketMsg.data
       const type = socketMsg.type
       switch (type) {
-        case 'heart':
-          this.socket.send('heart')
-          break
         case 'msg':
           if (data) this.data = data
           break
