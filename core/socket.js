@@ -27,7 +27,13 @@ export default {
     socketInitialize() {
       const ReconnectingWebSocket = require('reconnectingwebsocket')
       if (this.socket) this.socket.close()
-      this.socket = new ReconnectingWebSocket('ws://127.0.0.1:19101/socket')
+      this.socket = new ReconnectingWebSocket(
+        'ws://127.0.0.1:19101/socket',
+        null,
+        {
+          maxReconnectInterval: 3000,
+        }
+      )
       this.socket.onclose = this.socketOnErrorOrClose
       this.socket.onmessage = this.socketOnMessage
       this.socket.onopen = this.socketOnOpen
