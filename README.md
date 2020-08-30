@@ -12,6 +12,8 @@
 
 外部资源（如图片等）可以置于 `assets` 文件夹中，并且像初始模板那样，使用 `@/assets/<文件名>` 进行引用。也支持其他 Vue 功能，请参考 [Nuxt.JS](https://zh.nuxtjs.org/) 文档。
 
+项目仓库中加入了 ElementUI 的包，但是并没有默认启用。如果你需要使用 Element，从 `nuxt.config.js` 中取消注释 `css`、`plugins` 和 `transpile` 中含有 `element-ui` 的行。
+
 修改完成之后，在终端中键入 `npm run build` 生成静态页面。完成之后，从 `dist` 文件夹中取出静态站并使用自己喜欢的方式部署。如果你不知应如何部署静态站点，请联系 SimpleBox 的管理寻求帮助。你也可以在使用的时候在 `dist` 文件夹内直接使用终端键入 `npx serve` 临时部署。
 
 我们欢迎 Issues 和 PRs。如果有如何问题，你也可以联系 SimpleBox 的管理。
